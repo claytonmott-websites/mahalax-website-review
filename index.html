@@ -70,7 +70,7 @@ section.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px s
 .card h2{font-size:24px;margin-bottom:4px}
 
 /* Stat strip */
-.stats{display:grid;grid-template-columns:repeat(5,1fr);background:var(--night);color:#fff;border-radius:var(--r);overflow:hidden}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--night);color:#fff;border-radius:var(--r);overflow:hidden}
 .stat{padding:28px 24px;border-right:1px solid rgba(255,255,255,.1)}
 .stat:last-child{border:0}
 .stat b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em;color:#fff}
@@ -197,8 +197,8 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
   .g3,.g4{grid-template-columns:1fr 1fr}
   .flow{grid-template-columns:1fr 1fr}
   .legend{grid-template-columns:1fr 1fr 1fr}
-  .stats{grid-template-columns:repeat(3,1fr)}
-  .stat:nth-child(3){border-right:0}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:0}
   .safe ul{grid-template-columns:1fr}
   nav.main{display:none;position:absolute;top:91px;left:0;right:0;background:var(--night);flex-direction:column;align-items:stretch;padding:12px 24px 24px}
   nav.main.open{display:flex}
@@ -234,10 +234,8 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
     </a>
     <button class="menu" aria-label="Open menu" onclick="document.querySelector('nav.main').classList.toggle('open')">&#9776;</button>
     <nav class="main" aria-label="Main">
-      <a href="#what">About MHX</a>
-      <a href="#how">How it works</a>
+      <a href="#what">How MahalaX works</a>
       <a href="#allocation">Your allocation</a>
-      <a href="#liquidity">Cash redemption</a>
       <a href="#faq">FAQ</a>
       <a class="btn btn-o" href="https://mahalax.forus.digital/api/oauth/login?returnPath=%2F">Sign in with FORUS</a>
     </nav>
@@ -257,7 +255,7 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
         <a class="btn btn-o" href="https://mahalax.forus.digital/claim">Claim my MHX &rarr;</a>
         <a class="btn btn-g" href="#how">See how it works</a>
       </div>
-      <p class="small">Token delivery follows your accepted terms and independent administrator approval. Cash redemption is not yet open.</p>
+      <p class="small">Token delivery follows your accepted terms and independent administrator approval.</p>
     </div>
     <div class="card">
       <p class="eyebrow">Getting started</p>
@@ -275,7 +273,6 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
   <div class="stats" role="list">
     <div class="stat" role="listitem"><b>360M</b><span>MHX policy supply</span></div>
     <div class="stat" role="listitem"><b>100&times;</b><span>Redenomination, your share unchanged</span></div>
-    <div class="stat" role="listitem"><b>10,119</b><span>Holders on the register</span></div>
     <div class="stat" role="listitem"><b>US$1</b><span>Reference value per MHX</span></div>
     <div class="stat" role="listitem"><b>XRPL</b><span>Recorded on the XRP Ledger</span></div>
   </div>
@@ -326,39 +323,28 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
       </div>
       <div class="legend">
         <div style="border-color:var(--orange)"><b>20%</b><strong>MHX rewards</strong><p>Issued to members over trust lines as they use the network.</p></div>
-        <div style="border-color:var(--medium)"><b>10%</b><strong>Liquidity</strong><p>Builds depth in the XRPL market and a cash redemption float.</p></div>
+        <div style="border-color:var(--medium)"><b>10%</b><strong>Liquidity</strong><p>Builds market depth so MHX can be exchanged at reliable prices.</p></div>
         <div style="border-color:var(--purple)"><b>5%</b><strong>Sweepstake</strong><p>Funds the small-prize, monthly and annual draws.</p></div>
         <div style="border-color:var(--deep)"><b>15%</b><strong>Treasury</strong><p>A reserve held in wallets that need several approvals to move.</p></div>
         <div style="border-color:var(--night)"><b>50%</b><strong>Operations</strong><p>Runs and grows the FORUS platform.</p></div>
       </div>
     </div>
 
-    <div class="g2" style="margin-top:72px">
-      <div class="tile">
-        <h3>Where the revenue comes from</h3>
-        <p style="margin-bottom:12px">Six streams feed the same split.</p>
-        <table>
-          <tr><td>Consumer signups</td><td class="r">US$2 once</td></tr>
-          <tr><td>Merchant onboarding</td><td class="r">US$50 once</td></tr>
-          <tr><td>Merchant software</td><td class="r">US$25 a month</td></tr>
-          <tr><td>Transaction fees</td><td class="r">1.5% of value</td></tr>
-          <tr><td>Advertising</td><td class="r">US$4.50 per 1,000 views</td></tr>
-          <tr><td>Partner settlement</td><td class="r">0.5% margin</td></tr>
-        </table>
-      </div>
+    <p style="color:#3B4470;margin-top:56px;max-width:720px">Revenue is generated by activity on the platform: people joining, merchants trading and payments moving across the network. All of it runs through the same split.</p>
+    <div style="margin-top:24px;max-width:640px">
       <div class="tile">
         <h3>One US$14 payment, split at source</h3>
         <p style="margin-bottom:12px">A worked example from the operating model.</p>
         <table>
           <tr class="sub"><td>Payment value</td><td class="r">$14.000</td></tr>
-          <tr class="sub"><td>Fee at 1.5%, less processing</td><td class="r">$0.206</td></tr>
+          <tr class="sub"><td>Network fee, after processing</td><td class="r">$0.206</td></tr>
           <tr><td>MHX rewards (20%)</td><td class="r">$0.041</td></tr>
           <tr><td>Liquidity (10%)</td><td class="r">$0.021</td></tr>
           <tr><td>Sweepstake (5%)</td><td class="r">$0.010</td></tr>
           <tr><td>Treasury (15%)</td><td class="r">$0.031</td></tr>
           <tr><td>Operations (50%)</td><td class="r">$0.103</td></tr>
         </table>
-        <p class="small" style="margin-top:12px">Multiply by millions of payments a month, plus five other streams, and the pools build automatically.</p>
+        <p class="small" style="margin-top:12px">Multiply by millions of payments a month, plus everything else happening on the network, and the pools build automatically.</p>
       </div>
     </div>
 
@@ -408,36 +394,6 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
       </div>
     </div>
 
-    <div class="g2" style="margin-top:32px">
-      <div class="tile">
-        <h3>Who holds MahalaX</h3>
-        <p style="margin-bottom:12px">10,119 holders are on the migration register.</p>
-        <table>
-          <tr><th>Group</th><th class="r">Holders</th><th class="r">Share</th></tr>
-          <tr><td>Founders</td><td class="r">17</td><td class="r">57.9%</td></tr>
-          <tr><td>Large investors</td><td class="r">31</td><td class="r">26.9%</td></tr>
-          <tr><td>NPO partners</td><td class="r">2</td><td class="r">5.6%</td></tr>
-          <tr><td>Mid investors</td><td class="r">64</td><td class="r">5.4%</td></tr>
-          <tr><td>Vietnam community</td><td class="r">9,460</td><td class="r">2.5%</td></tr>
-          <tr><td>Small investors</td><td class="r">376</td><td class="r">1.2%</td></tr>
-          <tr><td>FORUS entities</td><td class="r">3</td><td class="r">0.6%</td></tr>
-          <tr class="tot"><td>Total</td><td class="r">10,119</td><td class="r">100%</td></tr>
-        </table>
-      </div>
-      <div class="tile">
-        <h3>How the 360M MHX is set aside</h3>
-        <p style="margin-bottom:12px">Under the earlier MahalaX allocation policy.</p>
-        <table>
-          <tr><td>Ecosystem rewards pool</td><td class="r">108M</td><td class="r">30%</td></tr>
-          <tr><td>Treasury strategic reserve</td><td class="r">90M</td><td class="r">25%</td></tr>
-          <tr><td>Strategic partners</td><td class="r">54M</td><td class="r">15%</td></tr>
-          <tr><td>Founder and team vesting</td><td class="r">54M</td><td class="r">15%</td></tr>
-          <tr><td>Investor allocation</td><td class="r">36M</td><td class="r">10%</td></tr>
-          <tr><td>Community reserve</td><td class="r">18M</td><td class="r">5%</td></tr>
-        </table>
-        <p class="small" style="margin-top:12px">Founder and team MHX vests over 36 months after a 12-month cliff.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -493,44 +449,6 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
   </div>
 </section>
 
-<!-- LIQUIDITY -->
-<section class="alt" id="liquidity">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Liquidity and cash redemption</p>
-      <h2>An orderly path to liquidity.</h2>
-      <p>Cash redemption is designed as a release valve, not the main way to use MHX. It grows with real adoption and is paced to protect every holder.</p>
-    </div>
-    <div class="status"><span class="dot"></span><p><strong>Programme in preparation.</strong> No cash window is open yet. Pricing, eligibility, fees and the share of surplus are approved before any window opens, and each window is announced here first.</p></div>
-
-    <h3 style="font-size:22px;margin-bottom:24px">How windows are designed to work</h3>
-    <div class="tl">
-      <div><b>Months 1 to 3</b><h3>Verification hold</h3><p>Complete identity checks, open your MahalaX wallet and acknowledge the terms.</p></div>
-      <div><b>Month 4</b><h3>First window</h3><p>Verified holders may request up to 5% of their unlocked balance.</p></div>
-      <div><b>Every quarter</b><h3>Windows repeat</h3><p>Months 7, 10, 13 and on. Unfilled requests roll forward to the next window.</p></div>
-      <div><b>Ongoing</b><h3>The pool grows</h3><p>The liquidity share of every transaction keeps building the reserve.</p></div>
-    </div>
-
-    <div class="g3" style="margin-top:56px">
-      <div class="tile"><h3>Funded first</h3><p>Only cleared, earned operating cash left after delivery obligations, tax, fees, refunds, prizes, costs and a cash buffer can fund a window. No surplus means no new window.</p></div>
-      <div class="tile"><h3>Fair when busy</h3><p>If requests are larger than the window, everyone receives the same share of what they asked for. 25% of the pool is always held back as a safety reserve.</p></div>
-      <div class="tile"><h3>Always your choice</h3><p>Selling is voluntary. Each window publishes its price, cash cap, dates, eligibility, fees and allocation method. Unsold MHX stays yours.</p></div>
-    </div>
-
-    <div class="g2" style="margin-top:24px">
-      <div class="tile">
-        <h3>Backing the token</h3>
-        <p style="margin-bottom:16px">The 10% liquidity share is divided two ways.</p>
-        <div class="pools" style="height:48px;margin:0 0 16px"><div style="flex:60;background:var(--medium)">60% XRPL market</div><div style="flex:40;background:var(--light);color:var(--night)">40% cash float</div></div>
-        <p>On-ledger depth lets members and merchants exchange MHX inside the ecosystem at reliable prices. The off-ledger cash float means a merchant who accepts MHX always has a funded way to cash out.</p>
-      </div>
-      <div class="tile">
-        <h3>Kept in balance</h3>
-        <p>The policy floor is 30% liquidity cover of outstanding MHX value. The base case reaches 62.5% by month 36. If cover trends toward the floor, two levers respond: a larger liquidity share of each transaction, or slower MHX issuance.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- US$1 -->
 <section id="usd">
@@ -539,12 +457,11 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
       <div class="big"><small>US$</small>1</div>
       <div>
         <p class="eyebrow">What US$1 means</p>
-        <h2>One reference value, three uses.</h2>
-        <p style="color:#3B4470;margin-bottom:24px">US$1 per MHX is the reference value used across the FORUS ecosystem. It appears in three places, each with its own purpose.</p>
-        <div class="g3">
+        <h2>One clear reference value.</h2>
+        <p style="color:#3B4470;margin-bottom:24px">US$1 per MHX is the reference value used across the FORUS ecosystem, and it is what MHX is measured against in the advertising market.</p>
+        <div class="g2">
           <div class="tile"><h3>Advertisers buy</h3><p>US$1 is the price advertisers pay to buy MHX.</p></div>
           <div class="tile"><h3>Advertising runs</h3><p>Each MHX buys US$1 of advertising services on the FORUS network.</p></div>
-          <div class="tile"><h3>Holders sell</h3><p>US$1 is the sale price for a funded cash window, when one opens.</p></div>
         </div>
       </div>
     </div>
@@ -561,8 +478,8 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
     </div>
     <div class="g3">
       <div class="tile"><h3>Approved trust lines only</h3><p>MHX is issued only through authorised trust lines on the XRP Ledger. No free minting and no off-ledger copies.</p></div>
-      <div class="tile"><h3>Multi-approval wallets</h3><p>Issuer, treasury and campaign wallets are kept separate, each needing several sign-offs, with approval logs. The redemption reserve is ring-fenced from operating accounts.</p></div>
-      <div class="tile"><h3>Independent review</h3><p>An independent administrator reviews every holder claim before delivery. Identity is verified before any cash redemption.</p></div>
+      <div class="tile"><h3>Multi-approval wallets</h3><p>Issuer, treasury and campaign wallets are kept separate, each needing several sign-offs, with approval logs.</p></div>
+      <div class="tile"><h3>Independent review</h3><p>An independent administrator reviews every holder claim before any MHX is delivered.</p></div>
       <div class="tile"><h3>Full audit trail</h3><p>Every issuance, delivery and pool movement is recorded, both in the FORUS platform and on the public ledger.</p></div>
       <div class="tile"><h3>Regulated approach</h3><p>FORUS reviews South African FSCA requirements for all applicable activities, and draw mechanics are approved per country before launch.</p></div>
       <div class="tile"><h3>Clear language</h3><p>MHX is a utility and rewards token for the FORUS ecosystem. All figures on this page are economic indicators, not promises.</p></div>
@@ -597,8 +514,7 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
     <details><summary>When will my MHX arrive?</summary><div><p>After an independent administrator approves your claim, 10% of your allocation is delivered first. Then 7.5% of your original allocation arrives every month for 12 months. Your wallet's on-ledger balance shows confirmed deliveries.</p><p>Submitting a claim, creating a wallet and approval are separate steps from delivery. Follow the status in the app.</p></div></details>
     <details><summary>My wallet says “Platform activation is required”. What do I do?</summary><div><p>Keep that wallet while FORUS completes its setup, then tap Refresh saved wallet and claim status. Do not create a second wallet or submit another claim.</p></div></details>
     <details><summary>The email, amount or wallet looks wrong.</summary><div><p>Stop and contact your usual trusted FORUS administrator before you continue. Do not submit a duplicate claim.</p></div></details>
-    <details><summary>Can I cash out my MHX?</summary><div><p>Not yet. The cash redemption programme is in preparation. When windows open, they will be quarterly, voluntary and funded from earned surplus, with up to 5% of your unlocked balance per window. Spending MHX in the ecosystem is the main way to use it.</p></div></details>
-    <details><summary>What is MHX worth?</summary><div><p>The FORUS reference value is US$1 per MHX. It is the price advertisers pay, the advertising value each MHX buys and the proposed sale price in a funded window. Real value grows with use, liquidity and confidence across the network.</p></div></details>
+    <details><summary>What is MHX worth?</summary><div><p>The FORUS reference value is US$1 per MHX. It is the price advertisers pay and the advertising value each MHX buys. Real value grows with use, liquidity and confidence across the network.</p></div></details>
     <details><summary>I use an iPhone. How do I get the app?</summary><div><p>Install Apple's TestFlight from the App Store, then open the FORUS Connect beta link in Safari on your iPhone. The beta connects to the live ledger and uses real MHX. TestFlight builds expire, so update when asked.</p></div></details>
     <details><summary>Is MahalaX part of FORUS?</summary><div><p>Yes. MahalaX is the token layer of the FORUS network, and FORUS Connect is where you hold, earn and use it.</p></div></details>
   </div>
@@ -639,11 +555,10 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
       <nav aria-label="Footer">
         <a href="https://mahalax.forus.digital/claim">MHX holder claims</a>
         <a href="https://mahalax.forus.digital/get-started">Get FORUS Connect</a>
-        <a href="#liquidity">Cash redemption information</a>
         <a href="https://forus.coop/">About FORUS &#8599;</a>
       </nav>
     </div>
-    <p class="legal">MahalaX (MHX) is a utility and rewards token for the FORUS ecosystem, recorded on the XRP Ledger. All figures are economic indicators from the FORUS operating model and are not investment advice, a guaranteed return or an offer of a financial product. Cash redemption depends on funded windows, identity verification and regulatory approval. &copy; 2026 FORUS.</p>
+    <p class="legal">MahalaX (MHX) is a utility and rewards token for the FORUS ecosystem, recorded on the XRP Ledger. All figures are economic indicators from the FORUS operating model and are not investment advice, a guaranteed return or an offer of a financial product. &copy; 2026 FORUS.</p>
   </div>
 </footer>
 
