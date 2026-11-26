@@ -192,16 +192,24 @@ details div p+p{margin-top:10px}
 .ex-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:28px}
 .ex-head .chip{margin:0;background:var(--orange);color:var(--night);text-transform:uppercase;letter-spacing:.1em;font-size:11px}
 .ex-head h3{font-size:22px;margin:0}
-.ex-row{display:grid;grid-template-columns:150px 28px 170px 28px 1fr;align-items:stretch;gap:12px}
+.ex-row{display:grid;grid-template-columns:150px 24px 200px 24px 1fr;align-items:center;gap:12px}
+.ex-stack{display:grid;gap:10px}
+.ex-fee{border:2px solid var(--orange);background:#FFF8EE}
+.ex-fee small{display:block;font-size:12px;color:var(--muted);margin-top:4px;line-height:1.35}
+.ex-fee strong{color:var(--night)}
+.ex-label{font-size:13px;font-weight:700;margin-bottom:10px;color:var(--night)}
+.ex-sum{font-size:13px;color:var(--muted);margin-top:10px;font-variant-numeric:tabular-nums}
+.ex-sum strong{color:var(--night)}
+
 .ex-step{background:var(--bg);border-radius:16px;padding:18px;display:flex;flex-direction:column;justify-content:center}
 .ex-step span,.ex-pool span{font-size:12px;color:var(--muted);font-weight:600;line-height:1.3}
-.ex-step b{font-size:24px;font-weight:800;letter-spacing:-.01em;margin-top:4px}
+.ex-step b{font-size:22px;font-weight:800;letter-spacing:-.01em;margin-top:4px}
 .ex-arrow{display:grid;place-items:center;color:var(--medium);font-size:22px;font-weight:800}
 .ex-pools{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 .ex-pool{background:var(--bg);border-radius:16px;padding:16px 14px;border-top:5px solid}
 .ex-pool b{display:block;font-size:20px;font-weight:800;margin:4px 0 2px}
 .ex-pool em{font-style:normal;font-size:12px;font-weight:700;color:var(--night)}
-@media (max-width:1020px){.ex-row{grid-template-columns:1fr 28px 1fr}.ex-pools{grid-column:1/-1}.ex-row>.ex-arrow:nth-child(4){display:none}}
+@media (max-width:1020px){.ex-row{grid-template-columns:1fr 28px 1fr}.ex-row>div:last-child{grid-column:1/-1}.ex-row>.ex-arrow:nth-child(4){display:none}}
 @media (max-width:640px){.ex-row{grid-template-columns:1fr 1fr}.ex-row>.ex-arrow{display:none}.ex-pools{grid-template-columns:1fr 1fr}.example{padding:24px}.ex-step b{font-size:20px}}
 
 footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rgba(255,255,255,.08)}
@@ -362,17 +370,24 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
       <div class="ex-row">
         <div class="ex-step"><span>A customer pays</span><b>US$14.00</b></div>
         <div class="ex-arrow" aria-hidden="true">&rarr;</div>
-        <div class="ex-step"><span>Network fee, after processing</span><b>US$0.206</b></div>
+        <div class="ex-stack">
+          <div class="ex-step"><span>The merchant receives</span><b>US$13.790</b></div>
+          <div class="ex-step ex-fee"><span>Network fee (1.5%)</span><b>US$0.210</b><small>less US$0.004 processing = <strong>US$0.206 to split</strong></small></div>
+        </div>
         <div class="ex-arrow" aria-hidden="true">&rarr;</div>
-        <div class="ex-pools">
-          <div class="ex-pool" style="border-color:var(--orange)"><span>MHX rewards</span><b>$0.041</b><em>20%</em></div>
-          <div class="ex-pool" style="border-color:var(--medium)"><span>Liquidity</span><b>$0.021</b><em>10%</em></div>
-          <div class="ex-pool" style="border-color:var(--purple)"><span>Sweepstake</span><b>$0.010</b><em>5%</em></div>
-          <div class="ex-pool" style="border-color:var(--deep)"><span>Treasury</span><b>$0.031</b><em>15%</em></div>
-          <div class="ex-pool" style="border-color:var(--night)"><span>Operations</span><b>$0.103</b><em>50%</em></div>
+        <div>
+          <p class="ex-label">The US$0.206 is split five ways</p>
+          <div class="ex-pools">
+            <div class="ex-pool" style="border-color:var(--orange)"><span>MHX rewards</span><b>US$0.041</b><em>20% of the fee</em></div>
+            <div class="ex-pool" style="border-color:var(--medium)"><span>Liquidity</span><b>US$0.021</b><em>10% of the fee</em></div>
+            <div class="ex-pool" style="border-color:var(--purple)"><span>Sweepstake</span><b>US$0.010</b><em>5% of the fee</em></div>
+            <div class="ex-pool" style="border-color:var(--deep)"><span>Treasury</span><b>US$0.031</b><em>15% of the fee</em></div>
+            <div class="ex-pool" style="border-color:var(--night)"><span>Operations</span><b>US$0.103</b><em>50% of the fee</em></div>
+          </div>
+          <p class="ex-sum">0.041 + 0.021 + 0.010 + 0.031 + 0.103 = <strong>US$0.206</strong></p>
         </div>
       </div>
-      <p class="small" style="margin-top:20px">An illustration from the FORUS operating model. Multiply it by millions of payments a month, plus everything else happening on the network, and the pools build automatically.</p>
+      <p class="small" style="margin-top:20px">An illustration from the FORUS operating model. In total: US$13.790 to the merchant + US$0.004 processing + US$0.206 split into the pools = US$14.00. Multiply it by millions of payments a month, plus everything else happening on the network, and the pools build automatically.</p>
     </div>
 
     <div class="g3" style="margin-top:24px">
@@ -440,8 +455,8 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
     </div>
     <div class="ctas" style="margin-top:32px;align-items:center">
       <div class="stores">
-        <a class="store" href="#app-store-link" data-todo="App Store URL for FORUS Connect" aria-label="Download FORUS Connect on the App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Download on the</small>App Store</span></a>
-        <a class="store" href="#google-play-link" data-todo="Google Play URL for FORUS Connect" aria-label="Get FORUS Connect on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg><span><small>Get it on</small>Google Play</span></a>
+        <a class="store" href="https://apps.apple.com/za/app/forus-connect-mobile/id6779714843" target="_blank" rel="noopener" aria-label="Download FORUS Connect on the App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Download on the</small>App Store</span></a>
+        <a class="store" href="https://play.google.com/store/apps/details?id=forus.connect.wallet&amp;hl=en_ZA" target="_blank" rel="noopener" aria-label="Get FORUS Connect on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg><span><small>Get it on</small>Google Play</span></a>
       </div>
       <a class="btn btn-g" href="https://mahalax.forus.digital/claim">Check my allocation</a>
     </div>
@@ -572,8 +587,8 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
       <a class="btn btn-o" href="https://mahalax.forus.digital/claim">Claim my MHX &rarr;</a>
       </div>
     <div style="margin-top:20px"><div class="stores">
-        <a class="store" href="#app-store-link" data-todo="App Store URL for FORUS Connect" aria-label="Download FORUS Connect on the App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Download on the</small>App Store</span></a>
-        <a class="store" href="#google-play-link" data-todo="Google Play URL for FORUS Connect" aria-label="Get FORUS Connect on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg><span><small>Get it on</small>Google Play</span></a>
+        <a class="store" href="https://apps.apple.com/za/app/forus-connect-mobile/id6779714843" target="_blank" rel="noopener" aria-label="Download FORUS Connect on the App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Download on the</small>App Store</span></a>
+        <a class="store" href="https://play.google.com/store/apps/details?id=forus.connect.wallet&amp;hl=en_ZA" target="_blank" rel="noopener" aria-label="Get FORUS Connect on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg><span><small>Get it on</small>Google Play</span></a>
       </div></div>
     <p class="strap"><span>Connect the network.</span> <span>Coordinate value.</span> <span>Unlock shared opportunity.</span></p>
   </div>
