@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>MahalaX | FORUS MHX holder platform</title>
-<meta name="description" content="MahalaX (MHX) is the utility and rewards token of the FORUS economy. Find your allocation, claim your MHX in FORUS Connect and see how value flows through the network.">
+<title>MahalaX | The platform usage token of FORUS</title>
+<meta name="description" content="MahalaX (MHX) is the platform usage utility token of FORUS, used for advertising credits, value-added services and LuckyX customer rewards.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -254,6 +254,29 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
   .usd .big{font-size:88px}
   .hide-sm{display:none}
 }
+
+/* v5 additions */
+.uses{list-style:none;margin-top:8px}
+.uses li{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--line)}
+.uses li:last-child{border:0;padding-bottom:0}
+.uses .ic{margin:0;flex:0 0 44px}
+.uses p{font-size:14px;color:var(--muted)}
+.merch{display:grid;grid-template-columns:.8fr 1.2fr;gap:24px;align-items:stretch}
+.merch .src{background:var(--night);color:#fff;border-radius:var(--r);padding:36px;display:flex;flex-direction:column;justify-content:center}
+.merch .src p{opacity:.85;font-size:15px}
+.merch .src h3{font-size:24px;color:#fff}
+.merch .opts{display:grid;gap:24px}
+.loop{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;position:relative}
+.loop .tile{position:relative;padding-top:32px}
+.loop .tile:not(:last-child)::after{content:"\2192";position:absolute;right:-32px;top:50%;transform:translateY(-50%);font-size:24px;font-weight:800;color:var(--medium)}
+.loop .step{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--medium);margin-bottom:10px}
+.loopback{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:28px;font-size:14px;font-weight:700;color:var(--deep)}
+.loopback::before,.loopback::after{content:"";flex:1;max-width:220px;height:2px;background:repeating-linear-gradient(90deg,var(--light) 0 8px,transparent 8px 14px)}
+.rules{display:flex;gap:16px;align-items:flex-start;background:var(--mint);border-radius:18px;padding:20px 24px;margin-top:32px}
+.rules p{font-size:15px}
+.holders{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.lx{display:inline-flex;align-items:center;gap:8px;font-weight:700;text-decoration:none;color:var(--deep);margin-top:16px}
+@media (max-width:1020px){.merch,.holders{grid-template-columns:1fr}.loop{grid-template-columns:1fr;gap:28px}.loop .tile:not(:last-child)::after{content:"\2193";right:50%;top:auto;bottom:-30px;transform:translateX(50%)}}
 </style>
 </head>
 <body>
@@ -264,13 +287,14 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
     <a class="brand" href="#top" aria-label="MahalaX home">
       <img src="assets/forus-digital-cooperative-horizontal-reversed.svg" alt="FORUS Digital Cooperative" width="160" height="53">
       <span class="div"></span>
-      <span><b>MahalaX</b><small>MHX holder platform</small></span>
+      <span><b>MahalaX</b><small>Part of FORUS</small></span>
     </a>
     <button class="menu" aria-label="Open menu" onclick="document.querySelector('nav.main').classList.toggle('open')">&#9776;</button>
     <nav class="main" aria-label="Main">
-      <a href="#what">How MahalaX works</a>
-      <a href="#allocation">Your allocation</a>
-      <a href="#faq">FAQ</a>
+      <a href="#what">What is MHX</a>
+      <a href="#merchants">For merchants</a>
+      <a href="#luckyx">LuckyX</a>
+      <a href="#holders">Holders</a>
       <a class="btn btn-o" href="https://mahalax.forus.digital/api/oauth/login?returnPath=%2F">Sign in with FORUS</a>
     </nav>
   </div>
@@ -283,289 +307,90 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow">MahalaX · Part of FORUS</p>
-      <h1>Your MHX.<br>Connected to you.</h1>
-      <p class="lead">Find your registered MHX allocation, follow your claim and manage your MahalaX wallet through FORUS Connect. One account, one app, every step in one place.</p>
+      <h1>The token that<br>runs on FORUS.</h1>
+      <p class="lead">MahalaX (MHX) is the platform usage utility token of the FORUS Digital Economic Operating System. Use it to acquire advertising credits, value-added services and other platform services.</p>
       <div class="ctas">
-        <a class="btn btn-o" href="https://mahalax.forus.digital/claim">Claim my MHX &rarr;</a>
-        <a class="btn btn-g" href="#how">See how it works</a>
+        <a class="btn btn-o" href="#merchants">How merchants use MHX &rarr;</a>
+        <a class="btn btn-g" href="#luckyx">See a LuckyX example</a>
       </div>
-      <p class="small">Token delivery follows your accepted terms and independent administrator approval.</p>
+    </div>
+    <div class="card" id="what">
+      <p class="eyebrow">What MHX is for</p>
+      <h2>One token for platform services.</h2>
+      <ul class="uses">
+        <li><span class="ic" style="background:var(--orange)">1</span><div><h3>Advertising credits</h3><p>Apply MHX to advertising campaigns across the FORUS network.</p></div></li>
+        <li><span class="ic" style="background:var(--medium)">2</span><div><h3>Value-added services</h3><p>Unlock the extra services that FORUS offers on the platform.</p></div></li>
+        <li><span class="ic" style="background:var(--deep)">3</span><div><h3>Platform services and utilities</h3><p>Use MHX for other services and utilities across FORUS.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MERCHANTS -->
+<section class="alt" id="merchants">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">For merchants</p>
+      <h2>How merchants use MHX.</h2>
+      <p>Merchants acquire MHX through the FORUS merchant portal, then put it to work in two ways.</p>
+    </div>
+    <div class="merch">
+      <div class="src">
+        <p class="eyebrow" style="color:var(--light)">Start here</p>
+        <h3>Acquire MHX in the merchant portal</h3>
+        <p>Your merchant portal is where you get MHX for your business, ready to use across the platform.</p>
+      </div>
+      <div class="opts">
+        <div class="tile"><div class="ic" style="background:var(--orange)">&#9733;</div><h3>Reward customers</h3><p>Run reward programmes for your customers on the LuckyX sweepstake platform, using MHX.</p><a class="lx" href="https://luckyx.digital/" target="_blank" rel="noopener">Visit LuckyX &#8599;</a></div>
+        <div class="tile"><div class="ic" style="background:var(--deep)">&#9650;</div><h3>Acquire advertising credits</h3><p>Turn MHX into advertising credits and apply them to your campaigns.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LUCKYX EXAMPLE -->
+<section id="luckyx">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Example</p>
+      <h2>A simple LuckyX campaign.</h2>
+      <p>Here is how MHX moves between a merchant and their customers in one campaign.</p>
+    </div>
+    <div class="loop">
+      <div class="tile"><span class="step">Step 1 · Merchant</span><h3>Rewards customers with MHX</h3><p>The merchant acquires MHX through the merchant portal and uses it to reward customers in a LuckyX campaign.</p></div>
+      <div class="tile"><span class="step">Step 2 · Customer</span><h3>Uses MHX for rewards</h3><p>Customers who receive MHX use it to get the merchant rewards offered through the campaign.</p></div>
+      <div class="tile"><span class="step">Step 3 · Merchant</span><h3>Exchanges rewards for MHX</h3><p>The merchant exchanges the rewards they receive through the campaign for MHX, ready for the next campaign.</p></div>
+    </div>
+    <p class="loopback">And the cycle continues</p>
+    <div class="rules"><span class="ic" style="background:var(--medium);margin:0;flex:0 0 44px">i</span><p><strong>Every campaign sets its own rules:</strong> how participants receive MHX, which rewards they can get and how exchanges work.</p></div>
+    <a class="lx" href="https://luckyx.digital/" target="_blank" rel="noopener">Explore LuckyX &#8599;</a>
+  </div>
+</section>
+
+<!-- HOLDERS -->
+<section class="alt" id="holders">
+  <div class="wrap holders">
+    <div>
+      <p class="eyebrow">Existing MahalaX holders</p>
+      <h2>Your MHX, in your FORUS account.</h2>
+      <p style="color:#3B4470;font-size:17px;margin-bottom:28px">Sign in to see your MHX and your holder information. Everything about your holding lives inside the platform, available once you are signed in.</p>
+      <div class="ctas">
+        <a class="btn btn-o" href="https://mahalax.forus.digital/api/oauth/login?returnPath=%2F">Sign in with FORUS &rarr;</a>
+        <a class="btn btn-g" href="https://mahalax.forus.digital/claim">Claim my MHX</a>
+      </div>
     </div>
     <div class="card">
-      <p class="eyebrow">Getting started</p>
-      <h2>One account. Your MHX journey.</h2>
-      <ol class="steps">
-        <li><span class="num">1</span><div><h3>Connect</h3><p>Sign in to FORUS Connect with the verified email recorded on your holder allocation.</p></div></li>
-        <li><span class="num">2</span><div><h3>Create your wallet</h3><p>Open your FORUS-managed MahalaX wallet in FORUS Connect. You do not need Xaman.</p></div></li>
-        <li><span class="num">3</span><div><h3>Follow your claim</h3><p>Review your terms, submit your claim and track approved deliveries to your wallet.</p></div></li>
-      </ol>
-    </div>
-  </div>
-</div>
-
-<div class="wrap">
-  <div class="stats" role="list">
-    <div class="stat" role="listitem"><b>360M</b><span>MHX policy supply</span></div>
-    <div class="stat" role="listitem"><b>100&times;</b><span>Redenomination, your share unchanged</span></div>
-    <div class="stat" role="listitem"><b>US$1</b><span>Reference value per MHX</span></div>
-    <div class="stat" role="listitem"><b>XRPL</b><span>Recorded on the XRP Ledger</span></div>
-  </div>
-</div>
-
-<!-- WHAT -->
-<section id="what">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">What MahalaX is</p>
-      <h2>The token that powers the FORUS economy.</h2>
-      <p>MahalaX (MHX) is the utility and rewards token of the FORUS network. MahalaX holders were the early backers who funded years of FORUS development. Now that the platform is live, MHX is the incentive layer that rewards activity across it.</p>
-    </div>
-    <div class="g3">
-      <div class="tile"><div class="ic" style="background:var(--medium)">1</div><h3>Earned through real activity</h3><p>MHX is issued when real things happen on the network: payments, signups, merchant activity and campaigns. Every qualifying payment in FORUS Connect can earn MHX rewards.</p></div>
-      <div class="tile"><div class="ic" style="background:var(--deep)">2</div><h3>Built for use</h3><p>MHX is made to be used inside the FORUS ecosystem: spent with merchants, earned as rewards, entered into draws and given to partner charities through GoodFORUS.</p></div>
-      <div class="tile"><div class="ic" style="background:var(--night)">3</div><h3>Limited by design</h3><p>The policy supply is 360 million MHX. New MHX enters circulation only through approved trust lines on the XRP Ledger, with every issuance recorded on-ledger.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="alt" id="how">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">How it works</p>
-      <h2>Every transaction funds the network. At source.</h2>
-      <p>When you make a mobile call, the network checks your SIM and balance before it connects you. MHX applies the same idea to money. Every transaction on FORUS is split into five pools at the moment it is authorised, inside the FORUS Rail Connector, before it settles. No month-end sweeps. No reconciliation gap. No unfunded promises.</p>
-    </div>
-    <div class="flow">
-      <div class="tile"><h3>Authorise</h3><p>Identity, trust line and compliance are checked before anything moves.</p></div>
-      <div class="tile"><h3>Compute the split</h3><p>The routing engine works out the five-way split on the net amount, before settlement.</p></div>
-      <div class="tile"><h3>Settle together</h3><p>Each pool's share lands in its own wallet in the same settlement instruction.</p></div>
-      <div class="tile"><h3>Issue MHX</h3><p>The rewards share triggers MHX issuance on the XRP Ledger: issuer, to treasury, to member. Fully logged.</p></div>
-      <div class="tile"><h3>Fund the draws</h3><p>The sweepstake share lands in a ring-fenced prize wallet, so prizes are funded before they are promised.</p></div>
-    </div>
-    <p class="flowtag">AUTHORISE <span>&rarr;</span> SPLIT <span>&rarr;</span> SETTLE</p>
-
-    <div style="margin-top:72px">
-      <h3 style="font-size:24px">Five pools, split on every transaction</h3>
-      <p style="color:#3B4470;margin-bottom:12px">Net revenue from across the platform is divided the same way every time. The shares always add up to 100%.</p>
-      <div class="pools" aria-hidden="true">
-        <div style="flex:20;background:var(--orange)">20%</div>
-        <div style="flex:10;background:var(--medium)">10%</div>
-        <div style="flex:5;background:var(--purple)">5%</div>
-        <div style="flex:15;background:var(--deep)">15%</div>
-        <div style="flex:50;background:var(--night)">50%</div>
-      </div>
-      <div class="legend">
-        <div style="border-color:var(--orange)"><b>20%</b><strong>MHX rewards</strong><p>Issued to members over trust lines as they use the network.</p></div>
-        <div style="border-color:var(--medium)"><b>10%</b><strong>Liquidity</strong><p>Builds market depth so MHX can be exchanged at reliable prices.</p></div>
-        <div style="border-color:var(--purple)"><b>5%</b><strong>Sweepstake</strong><p>Funds the small-prize, monthly and annual draws.</p></div>
-        <div style="border-color:var(--deep)"><b>15%</b><strong>Treasury</strong><p>A reserve held in wallets that need several approvals to move.</p></div>
-        <div style="border-color:var(--night)"><b>50%</b><strong>Operations</strong><p>Runs and grows the FORUS platform.</p></div>
-      </div>
-    </div>
-
-    <p style="color:#3B4470;margin-top:56px;max-width:720px">Revenue is generated by activity on the platform: people joining, merchants trading and payments moving across the network. All of it runs through the same split.</p>
-    <div class="card example">
-      <div class="ex-head"><span class="chip">Example</span><h3>One payment, split at source</h3></div>
-      <div class="ex-row">
-        <div class="ex-step"><span>A customer pays</span><b>US$14.00</b></div>
-        <div class="ex-arrow" aria-hidden="true">&rarr;</div>
-        <div class="ex-stack">
-          <div class="ex-step"><span>The merchant receives</span><b>US$13.790</b></div>
-          <div class="ex-step ex-fee"><span>Network fee (1.5%)</span><b>US$0.210</b><small>less US$0.004 processing = <strong>US$0.206 to split</strong></small></div>
-        </div>
-        <div class="ex-arrow" aria-hidden="true">&rarr;</div>
-        <div>
-          <p class="ex-label">The US$0.206 is split five ways</p>
-          <div class="ex-pools">
-            <div class="ex-pool" style="border-color:var(--orange)"><span>MHX rewards</span><b>US$0.041</b><em>20% of the fee</em></div>
-            <div class="ex-pool" style="border-color:var(--medium)"><span>Liquidity</span><b>US$0.021</b><em>10% of the fee</em></div>
-            <div class="ex-pool" style="border-color:var(--purple)"><span>Sweepstake</span><b>US$0.010</b><em>5% of the fee</em></div>
-            <div class="ex-pool" style="border-color:var(--deep)"><span>Treasury</span><b>US$0.031</b><em>15% of the fee</em></div>
-            <div class="ex-pool" style="border-color:var(--night)"><span>Operations</span><b>US$0.103</b><em>50% of the fee</em></div>
-          </div>
-          <p class="ex-sum">0.041 + 0.021 + 0.010 + 0.031 + 0.103 = <strong>US$0.206</strong></p>
-        </div>
-      </div>
-      <p class="small" style="margin-top:20px">An illustration from the FORUS operating model. In total: US$13.790 to the merchant + US$0.004 processing + US$0.206 split into the pools = US$14.00. Multiply it by millions of payments a month, plus everything else happening on the network, and the pools build automatically.</p>
-    </div>
-
-    <div class="g3" style="margin-top:24px">
-      <div class="tile"><span class="eyebrow">36-month base case</span><b style="display:block;font-size:36px;font-weight:800;letter-spacing:-.02em">US$62.7M</b><p>Projected net revenue across the network.</p></div>
-      <div class="tile"><span class="eyebrow">Pool funding</span><b style="display:block;font-size:36px;font-weight:800;letter-spacing:-.02em">US$21.9M</b><p>Into the rewards, liquidity and sweepstake pools.</p></div>
-      <div class="tile"><span class="eyebrow">Liquidity cover at month 36</span><b style="display:block;font-size:36px;font-weight:800;letter-spacing:-.02em">62.5%</b><p>Of outstanding MHX value, more than double the 30% policy floor.</p></div>
-    </div>
-    <p class="small" style="margin-top:16px">Projections from the FORUS 36-month economic operating model. They are economic indicators, not promises.</p>
-  </div>
-</section>
-
-<!-- ALLOCATION -->
-<section id="allocation">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Your allocation</p>
-      <h2>Every 1 became 100. Your share stayed the same.</h2>
-      <p>As MahalaX moved to the XRP Ledger, the supply was redenominated 100&times;. Every holder's balance was multiplied by 100, so your wallet shows more MHX while your share of the total supply is exactly what it was. Nothing is diluted.</p>
-    </div>
-    <div class="card redenom">
-      <div class="box"><span class="small">Earlier supply</span><b>3,600,000</b><span class="small">earlier MHX</span></div>
-      <div class="x">&times;100</div>
-      <div class="box"><span class="small">New policy supply</span><b>360,000,000</b><span class="small">MHX</span></div>
-    </div>
-
-    <div class="card calc" style="margin-top:32px" id="calc">
-      <div class="in">
-        <p class="eyebrow" style="color:var(--light)">Allocation calculator</p>
-        <h3 style="font-size:24px">See your MHX position</h3>
-        <p style="font-size:14px;opacity:.8">Enter the MahalaX balance you held before the redenomination.</p>
-        <label for="old">Earlier MHX held</label>
-        <input id="old" type="text" inputmode="numeric" value="1,000" autocomplete="off">
-        <p style="font-size:12px;opacity:.65;margin-top:16px">Your registered allocation in FORUS Connect is the final word. This calculator is for illustration.</p>
-      </div>
-      <div class="out">
-        <div class="res">
-          <div><span>Your MHX now</span><b id="rNew">100,000</b></div>
-          <div><span>At US$1 reference</span><b id="rVal">US$100,000</b></div>
-          <div><span>First delivery (10%)</span><b id="rFirst">10,000</b></div>
-          <div><span>Then each month &times; 12</span><b id="rMonth">7,500</b></div>
-        </div>
-        <p style="font-weight:700;font-size:14px">Your delivery schedule</p>
-        <div class="sched" id="sched" aria-hidden="true"></div>
-        <div class="schedlab"><span>Start</span><span>Month 6</span><span>Month 12</span></div>
-        <p class="small" style="margin-top:10px">Delivery starts from the first confirmed payment to your wallet: 10% first, then 7.5% of your original allocation every month for 12 months.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CLAIM -->
-<section class="alt" id="claim">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Claiming your MHX</p>
-      <h2>From app to wallet in four steps.</h2>
-      <p>Everything happens inside FORUS Connect. FORUS manages your wallet recovery and sponsors its activation, so there is nothing to pay and no separate wallet app to set up.</p>
-    </div>
-    <div class="g4">
-      <div class="tile"><div class="ic" style="background:var(--orange)">1</div><h3>Get FORUS Connect</h3><p>Download FORUS Connect free from the App Store or Google Play.</p></div>
-      <div class="tile"><div class="ic" style="background:var(--medium)">2</div><h3>Sign in</h3><p>Use the email recorded on your allocation. Then go to Wallet, Wallets, and create or open your MahalaX wallet.</p></div>
-      <div class="tile"><div class="ic" style="background:var(--deep)">3</div><h3>Review and submit</h3><p>Check your registered allocation and its terms. Accept only if you agree, tap Submit my MHX claim and keep the reference.</p></div>
-      <div class="tile"><div class="ic" style="background:var(--night)">4</div><h3>Follow your delivery</h3><p>An independent administrator reviews each claim. Approved MHX arrives on schedule and shows in your wallet's on-ledger balance.</p></div>
-    </div>
-    <div class="ctas" style="margin-top:32px;align-items:center">
+      <h3>Get FORUS Connect</h3>
+      <p style="color:#3B4470;font-size:15px;margin-bottom:20px">Download the app, sign in with the email on your holding and follow your MHX in one place.</p>
       <div class="stores">
         <a class="store" href="https://apps.apple.com/za/app/forus-connect-mobile/id6779714843" target="_blank" rel="noopener" aria-label="Download FORUS Connect on the App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Download on the</small>App Store</span></a>
         <a class="store" href="https://play.google.com/store/apps/details?id=forus.connect.wallet&amp;hl=en_ZA" target="_blank" rel="noopener" aria-label="Get FORUS Connect on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg><span><small>Get it on</small>Google Play</span></a>
       </div>
-      <a class="btn btn-g" href="https://mahalax.forus.digital/claim">Check my allocation</a>
-    </div>
-    <p class="small">If your wallet says “Platform activation is required”, keep that wallet while FORUS completes its setup, then tap Refresh. Do not create a second wallet or submit a second claim.</p>
-  </div>
-</section>
-
-<!-- USE -->
-<section id="use">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Using your MHX</p>
-      <h2>Made to move through the network.</h2>
-      <p>MHX is built for use. The more the FORUS network is used, the more ways there are to earn and use MHX.</p>
-    </div>
-    <div class="g3">
-      <div class="tile"><h3>Spend with merchants</h3><p>Use MHX directly with merchants across the FORUS platform. This is the main way to use your MHX, and it is not limited by any pool.</p><span class="chip">Full value usable</span></div>
-      <div class="tile"><h3>Earn on every payment</h3><p>Qualifying payments in FORUS Connect earn MHX automatically, with merchant multipliers and event bonuses set by each campaign.</p><span class="chip">Automatic rewards</span></div>
-      <div class="tile"><h3>Enter the draws</h3><p>Qualifying payments earn draw entries. Prize funds are filled at source, so every prize is funded before it is promised.</p><span class="chip">Three prize tiers</span></div>
-      <div class="tile"><h3>Refer friends</h3><p>Share your 8-character referral code. Milestones pay 50 MHX for your first referral, 200 for 5, 500 for 10 and 1,500 for 25.</p><span class="chip">Up to 1,500 MHX</span></div>
-      <div class="tile"><h3>Give through GoodFORUS</h3><p>Donate MHX to FORUS partner charities from inside the app, with every gift recorded on the ledger.</p><span class="chip">5 partner charities</span></div>
-      <div class="tile"><h3>Trade, when markets open</h3><p>As XRPL liquidity and secondary venues mature, MHX can be exchanged with other holders at the market price.</p><span class="chip">Market-dependent</span></div>
-    </div>
-
-    <div class="card" style="margin-top:32px">
-      <h3 style="font-size:22px">The draws</h3>
-      <p style="color:#3B4470;margin-bottom:20px">5% of net revenue funds a ring-fenced prize wallet, shared across three tiers.</p>
-      <div class="g3">
-        <div><b style="font-size:32px;font-weight:800;color:var(--orange)">40%</b><h3>Many small winners</h3><p class="small">Around 250,000 winners over 36 months, averaging US$5, paid in MHX.</p></div>
-        <div><b style="font-size:32px;font-weight:800;color:var(--medium)">35%</b><h3>Monthly big draw</h3><p class="small">One headline winner a month, growing from about US$2,000 at launch to US$120,000 by month 36.</p></div>
-        <div><b style="font-size:32px;font-weight:800;color:var(--deep)">20%</b><h3>Annual mega draw</h3><p class="small">Builds for 12 months and pays at months 12, 24 and 36. The year 3 prize is about US$485,000.</p></div>
-      </div>
-      <p class="small" style="margin-top:16px">The last 5% covers draw audits, random-number checks, legal and unclaimed prizes.</p>
     </div>
   </div>
 </section>
 
-
-<!-- US$1 -->
-<section id="usd">
-  <div class="wrap">
-    <div class="usd">
-      <div class="big"><small>US$</small>1</div>
-      <div>
-        <p class="eyebrow">What US$1 means</p>
-        <h2>One clear reference value.</h2>
-        <p style="color:#3B4470;margin-bottom:24px">US$1 per MHX is the reference value used across the FORUS ecosystem, and it is what MHX is measured against in the advertising market.</p>
-        <div class="g2">
-          <div class="tile"><h3>Advertisers buy</h3><p>US$1 is the price advertisers pay to buy MHX.</p></div>
-          <div class="tile"><h3>Advertising runs</h3><p>Each MHX buys US$1 of advertising services on the FORUS network.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROTECTIONS -->
-<section class="alt" id="trust">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Protections and transparency</p>
-      <h2>Built to be checked.</h2>
-      <p>Every MHX issuance and pool movement is logged in the Rail Connector and on the XRP Ledger, where anyone can verify it at any time.</p>
-    </div>
-    <div class="g3">
-      <div class="tile"><h3>Approved trust lines only</h3><p>MHX is issued only through authorised trust lines on the XRP Ledger. No free minting and no off-ledger copies.</p></div>
-      <div class="tile"><h3>Multi-approval wallets</h3><p>Issuer, treasury and campaign wallets are kept separate, each needing several sign-offs, with approval logs.</p></div>
-      <div class="tile"><h3>Independent review</h3><p>An independent administrator reviews every holder claim before any MHX is delivered.</p></div>
-      <div class="tile"><h3>Full audit trail</h3><p>Every issuance, delivery and pool movement is recorded, both in the FORUS platform and on the public ledger.</p></div>
-      <div class="tile"><h3>Regulated approach</h3><p>FORUS reviews South African FSCA requirements for all applicable activities, and draw mechanics are approved per country before launch.</p></div>
-      <div class="tile"><h3>Clear language</h3><p>MHX is a utility and rewards token for the FORUS ecosystem. All figures on this page are economic indicators, not promises.</p></div>
-    </div>
-    <div class="card" style="margin-top:32px">
-      <div class="g2">
-        <div>
-          <h3>Current MHX issuer</h3>
-          <a class="addr" href="https://livenet.xrpl.org/accounts/rPy9Rx6nMLZHomEmP8fa1hbQEtALdq3tCE" target="_blank" rel="noopener">rPy9Rx6nMLZHomEmP8fa1hbQEtALdq3tCE</a>
-          <h3 style="margin-top:16px">Current MHX treasury</h3>
-          <a class="addr" href="https://livenet.xrpl.org/accounts/r9Rvgk9b23vxpq649hiytZje4cdAbsGicg" target="_blank" rel="noopener">r9Rvgk9b23vxpq649hiytZje4cdAbsGicg</a>
-        </div>
-        <div>
-          <p style="color:#3B4470">These are the only accounts for the MHX you claim today. Check any delivery against them on the XRP Ledger explorer. An earlier MahalaX issuer remains on the ledger as a separate, historical asset.</p>
-          <a class="btn btn-g" style="margin-top:20px" href="https://mahalax.forus.digital/transparency">Historical ecosystem information</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-  <div class="wrap" style="max-width:880px">
-    <div class="head">
-      <p class="eyebrow">Questions</p>
-      <h2>Frequently asked.</h2>
-    </div>
-    <details><summary>Why does my wallet show 100 times more MHX?</summary><div><p>MahalaX was redenominated 100&times; when it moved to the XRP Ledger. Every balance was multiplied by 100 and the total supply went from 3.6 million to 360 million. Your share of the supply is exactly the same.</p></div></details>
-    <details><summary>Do I need Xaman or another wallet app?</summary><div><p>No. Your MahalaX wallet is created and managed inside FORUS Connect. FORUS manages recovery and sponsors activation.</p></div></details>
-    <details><summary>Do I have to pay anything to claim?</summary><div><p>No. There is no fee to create your wallet, submit your claim or unlock your allocation. Anyone asking you to pay to release MHX is not FORUS.</p></div></details>
-    <details><summary>When will my MHX arrive?</summary><div><p>After an independent administrator approves your claim, 10% of your allocation is delivered first. Then 7.5% of your original allocation arrives every month for 12 months. Your wallet's on-ledger balance shows confirmed deliveries.</p><p>Submitting a claim, creating a wallet and approval are separate steps from delivery. Follow the status in the app.</p></div></details>
-    <details><summary>My wallet says “Platform activation is required”. What do I do?</summary><div><p>Keep that wallet while FORUS completes its setup, then tap Refresh saved wallet and claim status. Do not create a second wallet or submit another claim.</p></div></details>
-    <details><summary>The email, amount or wallet looks wrong.</summary><div><p>Stop and contact your usual trusted FORUS administrator before you continue. Do not submit a duplicate claim.</p></div></details>
-    <details><summary>What is MHX worth?</summary><div><p>The FORUS reference value is US$1 per MHX. It is the price advertisers pay and the advertising value each MHX buys. Real value grows with use, liquidity and confidence across the network.</p></div></details>
-    <details><summary>Where do I get the FORUS Connect app?</summary><div><p>FORUS Connect is free on the App Store for iPhone and on Google Play for Android. Search for FORUS Connect, or use the buttons on this page, and check the publisher is FORUS before you install.</p></div></details>
-    <details><summary>Is MahalaX part of FORUS?</summary><div><p>Yes. MahalaX is the token layer of the FORUS network, and FORUS Connect is where you hold, earn and use it.</p></div></details>
-  </div>
-</section>
-
-<div class="wrap" style="padding-bottom:96px">
+<div class="wrap" style="padding:96px 32px">
   <div class="safe">
     <div class="shield" aria-hidden="true">&#128737;</div>
     <div>
@@ -573,7 +398,7 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
       <ul>
         <li>Only use the official FORUS Connect app from the App Store or Google Play, and mahalax.forus.digital.</li>
         <li>Never share a password, one-time code, seed, private key or recovery phrase. FORUS will never ask for them.</li>
-        <li>Ignore links and QR codes from unknown sources, and never pay to unlock an allocation.</li>
+        <li>Ignore links and QR codes from unknown sources.</li>
       </ul>
     </div>
   </div>
@@ -581,15 +406,12 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
 
 <div class="cta">
   <div class="wrap">
-    <h2>Your MHX is waiting.</h2>
-    <p>Open FORUS Connect and claim yours today.</p>
+    <h2>Put MHX to work on FORUS.</h2>
+    <p>Advertising credits, customer rewards and platform services, with one token.</p>
     <div class="ctas" style="justify-content:center">
-      <a class="btn btn-o" href="https://mahalax.forus.digital/claim">Claim my MHX &rarr;</a>
-      </div>
-    <div style="margin-top:20px"><div class="stores">
-        <a class="store" href="https://apps.apple.com/za/app/forus-connect-mobile/id6779714843" target="_blank" rel="noopener" aria-label="Download FORUS Connect on the App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Download on the</small>App Store</span></a>
-        <a class="store" href="https://play.google.com/store/apps/details?id=forus.connect.wallet&amp;hl=en_ZA" target="_blank" rel="noopener" aria-label="Get FORUS Connect on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg><span><small>Get it on</small>Google Play</span></a>
-      </div></div>
+      <a class="btn btn-o" href="#merchants">For merchants &rarr;</a>
+      <a class="btn btn-w" href="https://luckyx.digital/" target="_blank" rel="noopener">Visit LuckyX</a>
+    </div>
     <p class="strap"><span>Connect the network.</span> <span>Coordinate value.</span> <span>Unlock shared opportunity.</span></p>
   </div>
 </div>
@@ -601,32 +423,18 @@ footer{background:var(--night);color:#fff;padding:48px 0;border-top:1px solid rg
     <div class="ftr">
       <div><b>MahalaX</b><p>Part of the FORUS ecosystem.</p></div>
       <nav aria-label="Footer">
-        <a href="https://mahalax.forus.digital/claim">MHX holder claims</a>
-        <a href="https://mahalax.forus.digital/get-started">Get FORUS Connect</a>
+        <a href="#merchants">For merchants</a>
+        <a href="https://luckyx.digital/" target="_blank" rel="noopener">LuckyX &#8599;</a>
+        <a href="#holders">Existing holders</a>
         <a href="https://forus.coop/">About FORUS &#8599;</a>
       </nav>
     </div>
-    <p class="legal">MahalaX (MHX) is a utility and rewards token for the FORUS ecosystem, recorded on the XRP Ledger. All figures are economic indicators from the FORUS operating model and are not investment advice, a guaranteed return or an offer of a financial product. &copy; 2026 FORUS.</p>
+    <p class="legal">MahalaX (MHX) is the platform usage utility token of the FORUS Digital Economic Operating System, used to acquire advertising credits, value-added services and other platform services and utilities. &copy; 2026 FORUS.</p>
   </div>
 </footer>
 
 <script>
-(function(){
-  const $=id=>document.getElementById(id), fmt=n=>Math.round(n).toLocaleString('en-US');
-  const sched=$('sched');
-  sched.innerHTML='<i style="height:100%"></i>'+'<i style="height:75%"></i>'.repeat(12);
-  function run(){
-    const old=parseFloat(($('old').value||'0').replace(/[^0-9.]/g,''))||0, n=old*100;
-    $('rNew').textContent=fmt(n);
-    $('rVal').textContent='US$'+fmt(n);
-    $('rFirst').textContent=fmt(n*0.10);
-    $('rMonth').textContent=fmt(n*0.075);
-  }
-  $('old').addEventListener('input',run);
-  $('old').addEventListener('blur',()=>{const v=parseFloat($('old').value.replace(/[^0-9.]/g,''));if(!isNaN(v))$('old').value=v.toLocaleString('en-US')});
-  run();
-  document.querySelectorAll('nav.main a').forEach(a=>a.addEventListener('click',()=>document.querySelector('nav.main').classList.remove('open')));
-})();
+document.querySelectorAll('nav.main a').forEach(a=>a.addEventListener('click',()=>document.querySelector('nav.main').classList.remove('open')));
 </script>
 </body>
 </html>
